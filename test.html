@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var data={
+    "code": 0,
+    "content": {
+      "data": [
+        {
+          "period": 3,
+          "userName": "李玲",
+          "userId": "532be76a-a5b1-4522-9990-d4f42f96b834",
+          "picture": "activity_default.png",
+          "teacherId": "c09e34e4-e040-44e3-b038-f345c2fa5eee",
+          "createTime": 1505717008000,
+          "activitySortTwo": "Competition",
+          "activitySort": "Learning",
+          "name": "11",
+          "addrId": "11e5f6b5-ff27-439c-aee3-c1023acabd5b",
+          "details": "31212",
+          "startTime": 1505716920000,
+          "endTime": 1505716920000,
+          "id": "a5e4ba3f-1c49-452f-9f9e-74abe699431e",
+          "state": "Init",
+          "activityType": 0,
+          "addr": "1e1w",
+          "activityLevel": "Department",
+          "addrType": "2"
+        },
+        {
+          "period": 3,
+          "userName": "李玲",
+          "userId": "532be76a-a5b1-4522-9990-d4f42f96b834",
+          "picture": "activity_default.png",
+          "teacherId": "c09e34e4-e040-44e3-b038-f345c2fa5eee",
+          "createTime": 1505716997000,
+          "activitySortTwo": "Competition",
+          "activitySort": "Learning",
+          "name": "11",
+          "addrId": "da71a885-bb67-4932-bf4b-3ba0f81e1305",
+          "details": "31212",
+          "startTime": 1505716920000,
+          "endTime": 1505716920000,
+          "id": "fc30721a-1437-4f2f-8b4e-b77e572e8ef4",
+          "state": "Init",
+          "activityType": 0,
+          "addr": "1e1w",
+          "activityLevel": "Department",
+          "addrType": "2"
+        }
+      ],
+      "totalPages": 1,
+      "pageSize": 20,
+      "pageNum": 1,
+      "totalElements": 2
+    }
+  };
+  function computedItems(data){
+    let newItems=[];
+    data.forEach(item=>{
+      let createDate=item.createTime
+      if(newItems.hasOwnProperty(createDate)){
+
+        newItems[createDate].push(item);
+      }
+      else{
+        newItems[createDate]=new Array();
+        newItems[createDate].push(item);
+      }
+    })
+//    alert('newItems:'+JSON.stringify(newItems));
+    return newItems;
+  }
+  var newItems=computedItems(data.content.data);
+
+  for(var key in newItems){
+      alert(key);
+  }
+</script>
+</html>
