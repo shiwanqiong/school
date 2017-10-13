@@ -8,8 +8,10 @@
             :startY="parseInt(startY)"
             @pullingDown="onPullingDown"
             @pullingUp="onPullingUp">
-      <ul class="list-content">
-        <li class="list-item" v-for="item in items">{{item}}</li>
+      <ul>
+        <li v-for="item in items">
+          <p style="line-height: 200%">{{item}}</p>
+        </li>
       </ul>
     </scroll>
   </div>
@@ -25,21 +27,24 @@
     '我是第 3 行',
     '我是第 4 行',
     '我是第 5 行',
-//    '我是第 6 行',
-//    '我是第 7 行',
-//    '我是第 8 行',
-//    '我是第 9 行',
-//    '我是第 10 行',
-//    '我是第 11 行',
-//    '我是第 12 行',
-//    '我是第 13 行',
-//    '我是第 14 行',
-//    '我是第 15 行',
-//    '我是第 16 行',
-//    '我是第 17 行',
-//    '我是第 18 行',
-//    '我是第 19 行',
-//    '我是第 20 行'
+    '我是第 6 行',
+    '我是第 7 行',
+    '我是第 8 行',
+    '我是第 9 行',
+    '我是第 10 行',
+    '我是第 11 行',
+    '我是第 12 行',
+    '我是第 13 行',
+    '我是第 14 行',
+    '我是第 15 行',
+    '我是第 16 行',
+    '我是第 17 行',
+    '我是第 18 行',
+    '我是第 19 行',
+    '我是第 20 行',
+    '我是第 20 行',
+    '我是第 20 行',
+    '我是第 20 行',
   ]
 
   export default {
@@ -61,7 +66,8 @@
         scrollToEasing: 'bounce',
         scrollToEasingOptions: ['bounce', 'swipe', 'swipeBounce'],
         items: _data,
-        itemIndex: _data.length
+        itemIndex: _data.length,
+        page:0
       }
     },
     components: {
@@ -106,15 +112,7 @@
         setTimeout(() => {
           if (Math.random() > 0.5) {
             // 如果有新数据
-            let newPage = [
-              '我是第 ' + ++this.itemIndex + ' 行',
-              '我是第 ' + ++this.itemIndex + ' 行',
-              '我是第 ' + ++this.itemIndex + ' 行',
-              '我是第 ' + ++this.itemIndex + ' 行',
-              '我是第 ' + ++this.itemIndex + ' 行'
-            ]
-            this.items=[];
-            this.items.concat(newPage);
+            this.items.unshift('我是新数据: ' + +new Date())
           } else {
             // 如果没有新数据
             this.$refs.scroll.forceUpdate()
@@ -123,9 +121,10 @@
       },
       onPullingUp() {
         // 更新数据
-        console.log('pulling up and load data')
-       /* setTimeout(() => {*/
-          if (Math.random() > 0.5) {
+        console.log('pulling up and load data');
+        this.page++;
+        setTimeout(() => {
+          if (this.page<=3) {
             // 如果有新数据
             let newPage = [
               '我是第 ' + ++this.itemIndex + ' 行',
@@ -134,13 +133,12 @@
               '我是第 ' + ++this.itemIndex + ' 行',
               '我是第 ' + ++this.itemIndex + ' 行'
             ]
-
             this.items = this.items.concat(newPage)
           } else {
             // 如果没有新数据
             this.$refs.scroll.forceUpdate()
           }
-       /* }, 1000)*/
+        }, 1000)
       },
       rebuildScroll() {
         Vue.nextTick(() => {
@@ -153,7 +151,7 @@
 </script>
 
 <style scoped lang="scss">
-  .list-wrapper{
-    height:100px;
+  *{
+    @include font-dpr(30px);
   }
 </style>

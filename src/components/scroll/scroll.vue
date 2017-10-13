@@ -50,7 +50,8 @@
   const COMPONENT_NAME = 'scroll'
   const DIRECTION_H = 'horizontal'
   const DIRECTION_V = 'vertical'
-  const DEFAULT_LOAD_TXT_MORE = '加载更多'
+//  const DEFAULT_LOAD_TXT_MORE = '加载更多'
+  const DEFAULT_LOAD_TXT_MORE = ''
   const DEFAULT_LOAD_TXT_NO_MORE = '没有更多数据了'
   const DEFAULT_REFRESH_TXT = '刷新成功'
 
@@ -116,6 +117,7 @@
         pulling: false,
         isPullUpLoad: false,
         pullUpDirty: true,
+//        pullUpDirty: false,
         pullDownStyle: '',
         bubbleY: 0
       }
@@ -307,6 +309,7 @@
     position: absolute;
     width: 100%;
     left: 0;
+    top:-50px;
     display: flex;
     justify-content: center;
     align-items: center;

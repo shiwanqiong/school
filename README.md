@@ -1,6 +1,6 @@
-# apph5
+# dormitory-manage
 
-> this is my project
+> 宿舍管理
 
 ## Build Setup
 

@@ -1,10 +1,18 @@
 *{
   box-sizing: border-box;
   font-family: PingFangSC-Regular;
+//  禁止长按事件
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 body{
   min-height: 100vh;
   background: #EFF0F4;
+
 }
 a,a:hover{
   text-decoration: none;
@@ -17,17 +25,6 @@ input,select,select option{
   border: 0;
   outline: none;
 }
-input[type=checkbox]{
-  width:0.586667rem;
-  height:0.586667rem;
-  background: url("./assets/img/check_icon.png") no-repeat;
-  background-size: 100%;
-}
-input[type=checkbox]:checked{
-  background: url("./assets/img/checked_icon.png") no-repeat;
-  background-size: 100%;
-}
-/*空数据提示*/
 .none-msg{
   padding-top: 5.066667rem;
   font-size: 0.346667rem;
